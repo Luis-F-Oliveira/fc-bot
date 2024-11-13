@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FacilitaDiario", "FacilitaDiario\FacilitaDiario.csproj", "{37AF383E-DED2-4150-BD0A-294D2DB53FF1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{8056604D-9804-4E32-84A4-C48EC3CB9878}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37AF383E-DED2-4150-BD0A-294D2DB53FF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37AF383E-DED2-4150-BD0A-294D2DB53FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37AF383E-DED2-4150-BD0A-294D2DB53FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37AF383E-DED2-4150-BD0A-294D2DB53FF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7C9F322-D8FB-4AA9-9758-E213DD0A428D}
+	EndGlobalSection
+EndGlobal
