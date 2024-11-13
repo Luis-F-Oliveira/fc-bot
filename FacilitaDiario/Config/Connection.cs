@@ -13,13 +13,12 @@ namespace FacilitaDiario.Config
             Env.TraversePath().Load();
         }
 
-        public static async Task<List<IServant>> GetServants()
+        public async Task<List<IServant>> GetServants()
         {
             try
             {
                 string? backend_url = Environment.GetEnvironmentVariable("BACKEND_URL");
-                string url = backend_url + "/api/servants";
-                Console.WriteLine(url);
+                string url = backend_url + "/api/get_servants";
 
                 if (string.IsNullOrEmpty(backend_url))
                 {
