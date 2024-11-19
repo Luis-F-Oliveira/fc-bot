@@ -1,6 +1,6 @@
-﻿using FacilitaDiario.Config;
-using OpenQA.Selenium.Chrome;
+﻿using FacilitaDiario.DataGateway;
 using System.Globalization;
+using Microsoft.Playwright;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -38,12 +38,55 @@ namespace FacilitaDiario
 
         static async Task Main(string[] args)
         {
-            Connection connection = new();
-            var servants = await connection.GetServants();
+            Servants connection = new();
+            _ = await connection.GetServants();
 
-            ChromeDriver driver = new();
-            driver.Navigate().GoToUrl("https://www.iomat.mt.gov.br/");
-            driver.Quit();
+            using var playwright = await Playwright.CreateAsync();
+            var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+            {
+                Headless = false
+            });
+            var page = await browser.NewPageAsync();
+            await page.GotoAsync("https://www.iomat.mt.gov.br/");
+
+            try
+            {
+                await page.Locator("xpath=//*[@id='downloadPdf']").ClickAsync();
+                await page.Locator("xpath=//*[@id='html-interna']/a").ClickAsync();
+
+                await page.WaitForTimeoutAsync(3000);
+
+                var element = page.Locator("li.expandable", new()
+                {
+                    HasText = "DEFENSORIA PÚBLICA"
+                });
+                await element.ClickAsync();
+
+                Console.WriteLine(element);
+
+                //var listItems = element.Locator("ul");
+
+                //if (await listItems.IsVisibleAsync())
+                //{
+                //    Console.WriteLine($"Locator encontrado: {listItems}");
+                //}
+                //else
+                //{
+                //    Console.WriteLine("Não foi possivel achar o Locator");
+                //}
+
+                //var itemCount = await listItems.CountAsync();
+                
+                //Console.WriteLine($"Count: {itemCount}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                await browser.CloseAsync();
+            }
         }
     }
 }

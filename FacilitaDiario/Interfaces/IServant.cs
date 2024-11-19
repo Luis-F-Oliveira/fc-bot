@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace FacilitaDiario.Types
+namespace FacilitaDiario.Interfaces
 {
     public class IServant
     {

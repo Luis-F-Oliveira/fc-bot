@@ -1,14 +1,14 @@
 ﻿using System.Text.Json;
-using FacilitaDiario.Types;
+using FacilitaDiario.Interfaces;
 using DotNetEnv;
 
-namespace FacilitaDiario.Config
+namespace FacilitaDiario.DataGateway
 {
-    internal class Connection
+    internal class Servants
     {
         private static readonly HttpClient _httpClient = new();
 
-        public Connection()
+        public Servants()
         {
             Env.TraversePath().Load();
         }
