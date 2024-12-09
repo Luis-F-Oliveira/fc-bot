@@ -24,7 +24,7 @@
     <Compile Include="app\auth.py" />
     <Compile Include="app\__init__.py" />
     <Compile Include="FacilitaDiario.py" />
-    <Compile Include="LICENSE.py" />
+    <Compile Include="LICENSE" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\" />
